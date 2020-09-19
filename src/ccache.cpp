@@ -1015,11 +1015,13 @@ get_result_name_from_cpp(Context& ctx, Args& args, Hash& hash)
     stderr_path = tmp_stderr.path;
     ctx.register_pending_tmp_file(stderr_path);
 
-    size_t args_added = 2;
+    size_t args_added = 4;
     args.push_back("-E");
+    args.push_back("-o");
+    args.push_back("-");
     if (ctx.config.keep_comments_cpp()) {
       args.push_back("-C");
-      args_added = 3;
+      args_added++;
     }
     args.push_back(ctx.args_info.input_file);
     add_prefix(ctx, args, ctx.config.prefix_command_cpp());
