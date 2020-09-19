@@ -1017,7 +1017,7 @@ get_result_name_from_cpp(Context& ctx, Args& args, Hash& hash)
 
     size_t args_added = 2;
     args.push_back("-E");
-    if (true) {
+    if (ctx.args_info.actual_language == "hip") {
       args.push_back("-o");
       args.push_back("-");
       args_added += 2;
